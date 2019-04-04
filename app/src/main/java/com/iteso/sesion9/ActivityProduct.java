@@ -46,7 +46,7 @@ public class ActivityProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         //… Cast GUI elements
-                storeSelected = null;
+        storeSelected = null;
         categorySelected = null;
         imageSelected = -1;
 //DataBase Objects
@@ -64,7 +64,8 @@ public class ActivityProduct extends AppCompatActivity {
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categoriesList);
         categories.setAdapter(categoriesAdapter);
         ArrayList<String> myimages = new ArrayList<>();
-        myimages.add("Mac"); myimages.add("Alienware");
+        myimages.add("Mac");
+        myimages.add("Alienware");
         imagesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myimages);
         images.setAdapter(imagesAdapter);
         stores.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -72,85 +73,90 @@ public class ActivityProduct extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 storeSelected = storesAdapter.getItem(position);
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
         images.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 imageSelected = position;
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item) {
-            if (item.getItemId() == R.id.action_save) {
-                if(isValidProduct()){
-                    ItemProduct itemProduct = new ItemProduct();
-                    itemProduct.setTitle(title.getText().toString().trim());
-                    itemProduct.setDescription(description.getText().toString().trim());
-                    itemProduct.setStore(storeSelected);
-                    itemProduct.setCategory(categorySelected);
-                    itemProduct.setImage(imageSelected);
-                    ItemProductControl itemProductControl = new ItemProductControl();
-                    itemProductControl.addItemProduct(itemProduct, dh);
-                    Intent intent = new Intent();
-                    intent.putExtra("ITEM", itemProduct);
-                    setResult(Activity.RESULT_OK, intent);
-                    finish();
-                }
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
-        }
 
-        public void setCategorySelected(int categoryId){
-            for (int position = 0; position < categoriesAdapter.getCount(); position++)
-            {
-                if(((Category)categoriesAdapter.getItem(position)).getId() == categoryId)
-                {
+        public void setCategorySelected ( int categoryId){
+            for (int position = 0; position < categoriesAdapter.getCount(); position++) {
+                if (((Category) categoriesAdapter.getItem(position)).getId() == categoryId) {
                     categories.setSelection(position);
                     return;
                 }
             }
         }
-        public void setStoreSelected(int storeId){
-            for (int position = 0; position < storesAdapter.getCount(); position++)
-            {
-                if(((Store)storesAdapter.getItem(position)).getId() == storeId)
-                {
+        public void setStoreSelected ( int storeId){
+            for (int position = 0; position < storesAdapter.getCount(); position++) {
+                if (((Store) storesAdapter.getItem(position)).getId() == storeId) {
                     stores.setSelection(position);
                     return;
                 }
             }
         }
-        public void setImageSelected(int imageId){
+        public void setImageSelected ( int imageId){
             images.setSelection(imageId);
         }
 
-        public void onClick(View v) {
+        public void onClick (View v){
             switch (v.getId()) {
                 case R.id.activity_product_search:
                     int idProduct = 0;
                     try {
                         idProduct = Integer.parseInt(id.getText().toString().trim());
-                    }catch(NumberFormatException e){ return; }
+                    } catch (NumberFormatException e) {
+                        return;
+                    }
                     ItemProductControl itemProductControl = new ItemProductControl();
                     ItemProduct itemProduct = itemProductControl.getProductById(idProduct, dh);
-                    if(itemProduct != null) {
+                    if (itemProduct != null) {
                         title.setText(itemProduct.getTitle());
                         description.setText(itemProduct.getDescription());
-                        if(itemProduct.getCategory() != null) {
-                            setCategorySelected(itemProduct.getCategory().getId());}
-                        if(itemProduct.getStore()!= null) {
-                            setStoreSelected(itemProduct.getStore().getId());}
+                        if (itemProduct.getCategory() != null) {
+                            setCategorySelected(itemProduct.getCategory().getId());
+                        }
+                        if (itemProduct.getStore() != null) {
+                            setStoreSelected(itemProduct.getStore().getId());
+                        }
                         setImageSelected(itemProduct.getImage());
                     }
                     break;
             }
         }
 
+    }
 
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        if (item.getItemId() == R.id.action_save) {
+            if(isValidProduct()){
+                ItemProduct itemProduct = new ItemProduct();
+                itemProduct.setTitle(title.getText().toString().trim());
+                itemProduct.setDescription(description.getText().toString().trim());
+                itemProduct.setStore(storeSelected);
+                itemProduct.setCategory(categorySelected);
+                itemProduct.setImage(imageSelected);
+                ItemProductControl itemProductControl = new ItemProductControl();
+                itemProductControl.addItemProduct(itemProduct, dh);
+                Intent intent = new Intent();
+                intent.putExtra("ITEM", itemProduct);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     }
