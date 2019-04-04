@@ -1,0 +1,22 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <!-- Activity Splash -->
+    <dimen name="activity_splash_size">30sp</dimen>
+    <dimen name="activity_splash_margin">20dp</dimen>
+
+    <!-- Activity Login -->
+    <dimen name="activity_login_padding">10dp</dimen>
+    <dimen name="activity_login_margin">180dp</dimen>
+
+    <!-- Activity Product -->
+    <dimen name="activity_product_image">180dp</dimen>
+    <dimen name="activity_product_padding">10dp</dimen>
+
+    <!-- Item Product -->
+    <dimen name="item_product_card">320dp</dimen>
+</resources>

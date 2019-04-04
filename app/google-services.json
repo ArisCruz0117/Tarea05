@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "613703268342",
+    "firebase_url": "https://tarea-5-2ca99.firebaseio.com",
+    "project_id": "tarea-5-2ca99",
+    "storage_bucket": "tarea-5-2ca99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613703268342:android:47337a9a183dffef",
+        "android_client_info": {
+          "package_name": "com.iteso.sesion9"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613703268342-um8ce7m2knjo9kmlp4f2692cqc6qope2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iteso.sesion9",
+            "certificate_hash": "8ac05e77ed77423b2872d7ac78ca38fc05b03ac4"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj22XJmPRqjM7UEBZBfglPZBS6ZmfPWn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613703268342-m68i0nb7ija4n1darrpd9stt0qb2u44v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Iteso Store</string>
+    <string name="action_logout">LogOut</string>
+    <string name="action_privacy">Privacy Policy</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="section1">Technology</string>
+    <string name="section2">Home</string>
+    <string name="section3">Electronics</string>
+
+    <!-- Activity Splash -->
+    <string name="activity_splash_label">WELCOME TO ITESO PRODUCTS</string>
+
+    <!-- Activity Login -->
+    <string name="activity_login_hint_user">Introduce user</string>
+    <string name="activity_login_hint_pwd">Introduce password</string>
+    <string name="activity_login_login">Login</string>
+
+    <!-- Activity Product -->
+    <string name="activity_product_save">Save</string>
+    <string name="activity_product_cancel">Cancel</string>
+    <string name="activity_product_hint_title">Introduce title &#8230;</string>
+    <string name="activity_product_hint_store">Introduce store &#8230;</string>
+    <string name="activity_product_hint_location">Introduce location &#8230;</string>
+    <string name="activity_product_hint_phone">Introduce phone &#8230;</string>
+
+    <!-- Item Product -->
+    <string name="item_share">SHARE</string>
+    <string name="item_more">SEE MORE</string>
+</resources>
